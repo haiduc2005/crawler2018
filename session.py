@@ -34,7 +34,7 @@ print(cookies)
 s = requests.Session()
 for cookie in cookies:
     s.cookies.set(cookie['name'], cookie['value'])
-
+# 免登录访问其他url
 req = s.get(url_my_home, headers={'User-Agent': 'Mozilla/5.0'})
 # req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
 print(req.text)
