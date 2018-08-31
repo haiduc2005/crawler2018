@@ -11,9 +11,7 @@ from urllib.request import urlopen
 from urllib.request import Request
 import re
 
-
 downloadDir = 'E:\\Down\\text\\sns\\'#下载后存放目录
-
 class xiaochun():
     
     #搜索

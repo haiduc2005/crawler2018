@@ -15,14 +15,12 @@ driver.get(url)
 
 first_windows=driver.current_window_handle
 driver.find_element_by_xpath("/html/body/div[1]/div/div/span[2]/section/div/div/header/div[1]/div/div[2]/div/div/div/div[1]").click()
-
 #all_handles=driver.window_handles
 #for handle in all_handles:
 #    if handle!=first_windows:
 #        driver.switch_to_window(handle)
 #w = driver.window_handles
 #driver.switch_to_window(w[0])
-
 driver.find_element_by_css_selector("#i0116").send_keys(settings.MS_ID)
 time.sleep(3)
 #Create = driver.find_element_by_css_selector("#idSIButton9")
@@ -32,7 +30,6 @@ time.sleep(3)
 #wait = WebDriverWait(driver, 10)
 #element = wait.until(EC.element_to_be_clickable((By.XPATH, "//*[@id='idSIButton9']")))
 #element.click()
-
 driver.find_element_by_xpath("//*[@id='idSIButton9']").click()# login
 driver.find_element_by_xpath("//*[@id='i0118']").clear()
 driver.find_element_by_xpath("//*[@id='i0118']").send_keys(settings.MS_PASS)
