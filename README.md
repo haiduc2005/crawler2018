@@ -6,6 +6,6 @@ settings.*** 的地方是从settings.py（需要自己在当前目录中添加�
 settings.py的内容如下（例）：
 ------------------------------
 ID = "id"
-PASS = "密码"
-URL_XIAOCHUN = "小春网址"
+PASS = "123456"
+URL_XIAOCHUN = "https://www.incnjp.com/forum-92-1.html"
 ------------------------------
