@@ -1,17 +1,18 @@
 #coding=utf-8
 
 from selenium import webdriver
-import selenium.webdriver.support.ui as ui
-import time
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 import requests
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
 from urllib.request import Request
 import re
+import os
 
-downloadDir = 'E:\\Down\\text\\sns\\'#下载后存放目录
+downloadDir = './sns/'  # 下载后存放目录
+if os.path.exists(downloadDir) == False:  # 判断文件夹是否已经存在
+    os.makedirs(downloadDir)  # 创建文件夹
+
+
 class xiaochun():
     
     #搜索
@@ -37,13 +38,15 @@ class xiaochun():
         return urls
         
     #按帖子链接爬取内容
-    def get_name_content(urls):       
+    def get_name_content(urls):
+
         chapters = []
         for url in urls:
             req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
             response = urlopen(req)
             html = response.read()
-            soup = BeautifulSoup(html,"html5lib")
+            soup = BeautifulSoup(html, "lxml")
+            # soup = BeautifulSoup(html, "html5lib")
             title = soup.findAll('h1')[0].text          
             print("贴子title：" + title)
             chapters.append(title)
