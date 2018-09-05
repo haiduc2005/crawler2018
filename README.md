@@ -1,5 +1,4 @@
-# pachong
-## python爬虫
+# python爬虫
 
 settings.*** 的地方是从settings.py（需要自己在当前目录中添加）中读取常量。
 
