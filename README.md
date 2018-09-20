@@ -6,5 +6,5 @@ settings.py的内容如下（例）：
 
 ID = "id"  
 PASS = "123456"  
-URL_XIAOCHUN = "https://www.your-url.html"
+URL_XIAOCHUN = "https://www.yourdomain.html"
 
