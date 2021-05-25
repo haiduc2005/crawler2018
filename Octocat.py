@@ -51,10 +51,10 @@ def download_images(img_list):
     if not os.path.exists(filename):
         os.makedirs(filename)
     os.chdir(filename)
-    print(u'保存至目录:',filename)
+    print(u'保存する:',filename)
     # 下载图片
     for img in img_list:
-        print(u"正在下载...", img["name"])
+        print(u"ダウンロード中...", img["name"])
         pic = requests.get(img["url"])
         fp = open(img["name"] + '.png', 'wb')  # pngフォーマットに設定する
         fp.write(pic.content)
