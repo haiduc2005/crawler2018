@@ -5,12 +5,12 @@ import os
 
 downloadDir = './sns/'  # ダウンロード後の保存場所
 if os.path.exists(downloadDir) == False:  # フォルダ有り無しチェック
-    os.makedirs(downloadDir)  # 创建文件夹
+    os.makedirs(downloadDir)  # フォルダの作成
 
 
 class xiaochun():
 
-    # 搜索
+    # 検索
     def search():
         driver = webdriver.Firefox()
         base_url = "http://www.tokyocn.com/activity.php?upid=1&page="
