@@ -2,7 +2,7 @@ import urllib.request
 import requests
 from bs4 import BeautifulSoup
 import os
-# 抓取网站上所有的Github吉祥物的照片并保存到本地
+# サイト上の写真をキャッチしてローカルに保存する。
 
 basic_url = "https://octodex.github.com"
 
@@ -13,9 +13,9 @@ def open_url(url):
     print('start!')
     code = r.status_code
     if code != 200:
-        print(u"无法请求页面")
+        print(u"リクエスト失敗")
     else:
-        print(u"页面请求成功")
+        print(u"リクエスト成功")
         # html=r.content.decode('utf-8')
         return r.content
 
@@ -46,7 +46,7 @@ def get_image_list(content):
 
 
 def download_images(img_list):
-    basePath = os.path.join(os.getcwd(), r'octocat')  # 获取当前工作路径
+    basePath = os.path.join(os.getcwd(), r'octocat')  # カレントのパスを取得
     filename = os.path.join(basePath, 'octocat_img')
     if not os.path.exists(filename):
         os.makedirs(filename)
@@ -56,7 +56,7 @@ def download_images(img_list):
     for img in img_list:
         print(u"正在下载...", img["name"])
         pic = requests.get(img["url"])
-        fp = open(img["name"] + '.png', 'wb')  # 这里是图方便，全部保存为png格式
+        fp = open(img["name"] + '.png', 'wb')  # pngフォーマットに設定する
         fp.write(pic.content)
         fp.close()
 
