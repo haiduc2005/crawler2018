@@ -34,7 +34,7 @@ class xiaochun():
             
             if -1 != chapter_href.rfind('http'):
                 urls.append(chapter_href)           
-        print("贴子总数：",len(urls))
+        print("文書の数：",len(urls))
         return urls
         
     # 文書URLにより文書を取得
