@@ -52,7 +52,7 @@ def download_images(img_list):
         os.makedirs(filename)
     os.chdir(filename)
     print(u'保存する:',filename)
-    # 下载图片
+    # 写真ダウンロード
     for img in img_list:
         print(u"ダウンロード中...", img["name"])
         pic = requests.get(img["url"])
