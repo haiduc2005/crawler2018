@@ -15,10 +15,10 @@ driver = webdriver.Firefox()
 driver.maximize_window()
 driver.get(url)
 time.sleep(3)
-# 模拟滚动窗口以浏览下载更多图片  
+# スクロール操作で画面全部をチェックする 
 pos = 0
 for i in range(10):
-    pos += i*200 # 每次下滚200
+    pos += i*200 # スクロール一回の移動距離
     driver.execute_script("window.scrollTo(0, " + str(pos) + ");")
     # driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
     time.sleep(3)
@@ -34,8 +34,8 @@ items = soup1.find_all("a", class_="torpedo-thumb-link")
 # path = "//*[@id='gmi-']/span[*]/a"
 # items = html.xpath(path)
 folder_path = './wallpaper/'
-if os.path.exists(folder_path) == False:  # 判断文件夹是否已经存在
-    os.makedirs(folder_path)  # 创建文件夹
+if os.path.exists(folder_path) == False:  # フォルダ有り無しチェック
+    os.makedirs(folder_path)  # フォルダ作成
 for index, item in enumerate(items):
     # html = requests.get(item.get('src'))
     url = item.get("href")
@@ -46,16 +46,16 @@ for index, item in enumerate(items):
     soup = BeautifulSoup(html, "lxml")
     item = soup.find_all('img')[0]
     
-    html = requests.get(item.get('src'))   # get函数获取图片链接地址，requests发送访问请求
+    html = requests.get(item.get('src'))   # 画像のURLを取得し，requestsする
     file_name = url.split("/")[-1]
     img_name = folder_path + file_name + '.png'
-    print('第%d张图片开始下载' % (index + 1))
-    if os.path.exists(img_name) == True:  # 判断文件是否已经存在
-        print('图片已经存在:' + file_name)
+    print('%d枚目のダウンロードが開始' % (index + 1))
+    if os.path.exists(img_name) == True:  # フォルダ有り無しチェック
+        print('画像が存在する:' + file_name)
         continue
-    with open(img_name, 'wb') as file:  # 以byte形式将图片数据写入
+    with open(img_name, 'wb') as file:  # byte形式で画像データを書き込み
         file.write(html.content)
         file.flush()
-    file.close()  # 关闭文件
-    print('下载完成图片:' + file_name)
-print('抓取完成')
+    file.close()  # ファイルをクルーズ
+    print('ダウンロード済の画像:' + file_name)
+print('キャッチ完成')
